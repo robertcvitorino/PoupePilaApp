@@ -5,8 +5,9 @@ import 'package:poupe_pila/src/finalCreated/finalCreated-bloc.dart';
 class FinalCreated extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FinalCreatedBloc>(
-      bloc: FinalCreatedBloc(context),
+    return BlocProvider(
+       blocs:[Bloc((i)=>FinalCreatedBloc(context))],
+      
       child: Container(
           color: Colors.green.withOpacity(0.5), child: _FinalConet()),
     );
@@ -16,7 +17,7 @@ class _FinalConet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    FinalCreatedBloc bloc = BlocProvider.of<FinalCreatedBloc>(context);
+    FinalCreatedBloc bloc = BlocProvider.getBloc<FinalCreatedBloc>();
     
     _button() {
       return Container(

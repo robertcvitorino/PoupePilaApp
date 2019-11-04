@@ -12,6 +12,7 @@ class LoginBloc extends BlocBase {
   final BehaviorSubject<String> _emailController =  BehaviorSubject<String>();
   Observable<String> get emailUser=> _emailController.stream;
   Sink<String> get emailEvent =>_emailController.sink;
+  
   final BehaviorSubject<String> _senhaController = new BehaviorSubject<String>();
   Observable<String> get senhaUser=> _senhaController.stream;
   Sink<String> get senhaEvent =>_senhaController.sink;

@@ -5,8 +5,8 @@ import 'package:poupe_pila/src/create/created-bloc.dart';
 class CreatedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CreatedBLoc>(
-      bloc: CreatedBLoc(context),
+    return BlocProvider(
+      blocs:[Bloc((i)=>CreatedBLoc(context))],
       child: Container(
           color: Colors.green.withOpacity(0.5), child: _CreatedContent()),
     );
@@ -16,7 +16,7 @@ class CreatedWidget extends StatelessWidget {
 class _CreatedContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    CreatedBLoc bloc = BlocProvider.of<CreatedBLoc>(context);
+    CreatedBLoc bloc = BlocProvider.getBloc<CreatedBLoc>();
 
     _button() {
       return Container(

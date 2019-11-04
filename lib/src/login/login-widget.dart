@@ -7,8 +7,8 @@ import 'package:poupe_pila/src/login/login-bloc.dart';
 class LoginWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LoginBloc>(
-      bloc: LoginBloc(context),
+    return BlocProvider(
+       blocs:[Bloc((i)=>LoginBloc(context))],     
       child: Material(
         child: Stack(
           fit: StackFit.expand,
@@ -27,7 +27,8 @@ class LoginWidget extends StatelessWidget {
 class _LoginContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    LoginBloc bloc = BlocProvider.of<LoginBloc>(context);
+    LoginBloc bloc=BlocProvider.getBloc<LoginBloc>();    
+    //LoginBloc bloc = BlocProvider<LoginBloc>(context);
     bloc.checkLogin();
     _button() {
       return Row(
