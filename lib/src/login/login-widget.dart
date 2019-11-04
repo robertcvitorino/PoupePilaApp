@@ -16,7 +16,7 @@ class LoginWidget extends StatelessWidget {
             Container(
               color: Colors.white.withOpacity(0.5),
             ),
-            SingleChildScrollView(child: _LoginContent(),) 
+             _LoginContent(),
           ],
         ),
       ),

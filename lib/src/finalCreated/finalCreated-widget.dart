@@ -132,8 +132,8 @@ class _FinalConet extends StatelessWidget {
                           child: CircularProgressIndicator(),
                         ),
                         crossFadeState: snapshot.data
-                            ? CrossFadeState.showFirst
-                            : CrossFadeState.showSecond,
+                            ? CrossFadeState.showSecond
+                            : CrossFadeState.showFirst,
                         duration: Duration(milliseconds: 500));
                   })
             ],

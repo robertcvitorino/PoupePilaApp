@@ -2,12 +2,18 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:poupe_pila/src/Carrinho/carrinho-widget.dart';
+import 'package:poupe_pila/src/Conta/conta-widget.dart';
 import 'package:poupe_pila/src/Favorito/favorito-widget.dart';
 import 'package:poupe_pila/src/Pesquisa/pesquisa-widget.dart';
 import 'package:poupe_pila/src/home/home-bloc.dart';
 
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
+  @override
+  _HomeWidgetState createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -19,7 +25,7 @@ class HomeWidget extends StatelessWidget {
             Container(
               color: Colors.white.withOpacity(0.5),
             ),
-            SingleChildScrollView(child: _HomeContent(),) 
+             _HomeContent(),
           ],
         ),
       ),
@@ -52,7 +58,12 @@ class __HomeContentState extends State<_HomeContent> {
 
           IconButton(
               icon: Icon(Icons.account_circle),
-              onPressed: bloc.onClickBottonConta
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContaWidget()),
+                );
+           }
           ),
 
         ],

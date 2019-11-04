@@ -9,9 +9,12 @@ import 'package:poupe_pila/src/login/login-widget.dart';
 import 'package:rxdart/rxdart.dart';
 
 class HomeBloc extends BlocBase{
-  HomeBloc(BuildContext context);
+  
 
-  BuildContext get context => null;
+  final BuildContext context;
+  HomeBloc(this.context);
+
+  
 
    final BehaviorSubject<Int> _indiceController =  BehaviorSubject<Int>();
   Observable<Int> get indicelTela=> _indiceController.stream;
@@ -30,11 +33,11 @@ class HomeBloc extends BlocBase{
 
   }
   
-  
+  /*
   onClickBottonConta(){
     Navigator.push(context,
             MaterialPageRoute(builder: (BuildContext context) => ContaWidget()));
-  }
+  }*/
   logout()async{
       await FirebaseAuth.instance.signOut();
       Navigator.pushReplacement(context, MaterialPageRoute(builder:(BuildContext context)=>LoginWidget()));
